@@ -1,4 +1,5 @@
 import random
+from Words import computer_words
 
 def hangman_painting(guesses, word):
     if guesses == 0:
@@ -132,6 +133,9 @@ def word():
             return word
     elif question == "NO" or question == "N":
         word = random.choice(computer_words()).upper()
+        while len(word) < 4: 
+            word = random.choice(computer_words()).upper()
+        print("The computer has chosen a word")
         return word
     else: 
         print("I didn't understand the answer, please try again")
@@ -224,9 +228,7 @@ def play_again():
 
     
 
-def computer_words():
-    word_choises = ["Hello", "Love", "Jazz"]
-    return word_choises
+
 
 
 
