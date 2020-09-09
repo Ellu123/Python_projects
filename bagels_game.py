@@ -1,17 +1,18 @@
 import random
 
+
 NUM_DIGITS = 3
 MAX_GUESS = 10
 
 def playAgain():
+    print()
     print("Would you like to play again?")
     playagain = input("> ").upper()
 
     if playagain == "YES" or playagain == "Y":
-        game()
+        bagels_game()
     elif playagain == "NO" or playagain == "N":
         print("Bye for now")
-        quit()
     else:
         print("I didn't understand it. Try again")
         playAgain()
@@ -22,6 +23,13 @@ def getSecretNum():
     secretNum = ""
     for i in range(NUM_DIGITS):
         secretNum += str(numbers[i])
+    secretNum_list = list(secretNum)
+    while 0 in secretNum_list:
+        secretNum = ""
+        for i in range(NUM_DIGITS):
+            secretNum += str(numbers[i])
+        secretNum_list = list(secretNum)
+
     
     return secretNum
 
@@ -34,7 +42,6 @@ def getClues(guess, secretNum):
         print("\t (  )")
         print("\t _)(_")
         print()
-        playAgain()
     
     clues = []
     for i in range(len(guess)):
@@ -60,35 +67,40 @@ def isOnlyDigits(num):
 
 
 
-def game():
+def bagels_game():
     print()
     print("Hello")
     print("I am thinking of a %s-digit number. Can you figure out what it is?" %(NUM_DIGITS))
     print("I will give you only three types of clues")
+    print()
     print("When I say:\tThat means:")
-    print("Bagels\t None of the digits is correct\nPico\t One digit is correct but in the wrong position\nFermi\t One digit is correct and in the right position")
+    print("Bagels:\t\tNone of the digits is correct\nPico:\t\tOne digit is correct but in the wrong position\nFermi:\t\tOne digit is correct and in the right position")
     print()
 
-    while True:
-        secretNum = getSecretNum()
-        print("Secret number has been chosen. You have %s guesses to get it" %(MAX_GUESS))
-        guessesTaken = 1
-        while guessesTaken <= MAX_GUESS:
-            guess = ""
-            while len(guess) != NUM_DIGITS or not isOnlyDigits(guess):
-                print("Guess #%s:" %(guessesTaken))
-                guess = input("> ")
-                    
-            print(getClues(guess, secretNum))
-            guessesTaken += 1
 
-            if guess == secretNum:
-                break
-            if guessesTaken > MAX_GUESS:
-                print("You ran out of guesses. The correct answer was %s" %(secretNum))
-                break
+    secretNum = getSecretNum()
+    print("Secret number has been chosen. You have %s guesses to get it" %(MAX_GUESS))
+    guessesTaken = 1
+    while guessesTaken <= MAX_GUESS:
+        guess = ""
+        while len(guess) != NUM_DIGITS or not isOnlyDigits(guess):
+            print("Guess #%s:" %(guessesTaken))
+            guess = input("> ")
+                    
+        print(getClues(guess, secretNum))
+        guessesTaken += 1
+
+        if guess == secretNum:
+            playAgain()
+            break
+        if guessesTaken > MAX_GUESS:
+            print("You ran out of guesses. The correct answer was %s" %(secretNum))
+            playAgain()
+            break
+     
      
             
 
-game()
-playAgain() 
+
+
+ 

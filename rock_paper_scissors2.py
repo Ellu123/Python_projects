@@ -78,12 +78,12 @@ def play_again():
 
 
 
-#introduction
-print()
-print("Hello and welcome to rock paper scissors!")
-print("The rules are simple. Rock takes scissors, paper takes rock, scissors take paper and vice versa")
-print()
-game()
+def introduction():
+    print()
+    print("Hello and welcome to rock paper scissors!")
+    print("The rules are simple. Rock takes scissors, paper takes rock, scissors take paper and vice versa")
+    print()
+    game()
 
 
 

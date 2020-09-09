@@ -1,6 +1,7 @@
 import random
 from Words import computer_words
 
+
 def hangman_painting(guesses, word):
     if guesses == 0:
         print()
@@ -146,7 +147,7 @@ def word():
     
 
 
-def game():
+def hangman_game():
     guesses = 0
     myWord = word()
     myWord_list = list(myWord)
@@ -212,10 +213,9 @@ def play_again():
     print()
     again = input("Would you like to play again? ").upper()
     if again == "YES" or again == "Y":
-        game()
+        hangman_game()
     elif again =="NO" or again == "N":
         print("Bye for now")
-        quit()
     else:
         print("I didn't understand your answer, please try again")
         play_again()
@@ -232,7 +232,7 @@ def play_again():
 
 
 
-game()
+
 
 
 
