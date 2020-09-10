@@ -6,7 +6,6 @@ from bagels_game import bagels_game
 
 
 def intro():
-    print()
     print("Hello, what would you like to play?")
     print()
     print("Rock paper scissors:     1")
@@ -43,5 +42,7 @@ def intro():
     else:
         print("I didn't get that, please try again")
         intro()
+    
 
-intro()
+while True:
+    intro()

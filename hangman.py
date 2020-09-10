@@ -215,7 +215,7 @@ def play_again():
     if again == "YES" or again == "Y":
         hangman_game()
     elif again =="NO" or again == "N":
-        print("Bye for now")
+        print()
     else:
         print("I didn't understand your answer, please try again")
         play_again()

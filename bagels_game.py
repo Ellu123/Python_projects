@@ -12,7 +12,8 @@ def playAgain():
     if playagain == "YES" or playagain == "Y":
         bagels_game()
     elif playagain == "NO" or playagain == "N":
-        print("Bye for now")
+        print()
+        
     else:
         print("I didn't understand it. Try again")
         playAgain()

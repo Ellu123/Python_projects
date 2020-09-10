@@ -71,7 +71,7 @@ def play_again():
         print()
         game()
     elif play_again == "NO" or play_again == "N":
-        print("Bye for now")
+        print()
     else:
         print("I didn't understand, answer again")
         play_again()
