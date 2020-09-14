@@ -2,7 +2,7 @@ import random
 from Words import computer_words
 
 
-def hangman_painting(guesses, word):
+def hangman_painting(guesses, word): #Prints out the hangman and checks if you have lost
     if guesses == 0:
         print()
         print()
@@ -119,14 +119,16 @@ def hangman_painting(guesses, word):
         print("The word was:", word)
         play_again()
 
-def word():
+def word(): #Asks if you want to write an own word or if the computer shall randomize a word from a word list
     print()
-    question = input("Do you wanna write a own word? ").upper()
+    print("Do you wanna write a own word?")
+    question = input("> ").upper()
     print()
     if question == "YES" or question == "Y":
-        word = input("What is your word?: ").upper()
+        print("What is your word?") 
+        word = input("> ").upper()
         print()
-        if "-" in word or " " in word:
+        if "-" in word or " " in word or len(word) < 4: #Checks if your word is valid
             print("You have not chosen a valid word, try again")
             word()
         else:
@@ -134,7 +136,7 @@ def word():
             return word
     elif question == "NO" or question == "N":
         word = random.choice(computer_words()).upper()
-        while len(word) < 4: 
+        while len(word) < 4:                                #Checks if the word is smaller than 4, if True --> Take another word
             word = random.choice(computer_words()).upper()
         print("The computer has chosen a word")
         return word
@@ -147,7 +149,7 @@ def word():
     
 
 
-def hangman_game():
+def hangman_game(): #Where the game is
     guesses = 0
     myWord = word()
     myWord_list = list(myWord)
@@ -161,25 +163,25 @@ def hangman_game():
     print()
     print(" ".join(blanks_list ))
     print()
-    print("Guess the word")
-    while guesses < 9:
+    print("Guess the word") 
+    while guesses < 9: #Checks that you have guesses left
         print()
         guess = input("> ")
         guess = guess.upper()
 
-        if len(guess) > 1:
+        if len(guess) > 1: #Checks that you are not cheating
             print("Only one letter please!")
         elif guess == "":
             print("Fill in something please")
         elif guess in guess_list:
             print("You have already guessed that")
-            print("These are the ones you have guessed this far\n", " ".join(guess_list))
+            print("These are the ones you have guessed this far\n", " ".join(guess_list)) #Prints out all the guesses letters if you guess the same letter
         else:
             guess_list.append(guess)
             i = 0
             
-            while i < len(myWord):
-                if guess == myWord_list[i]:
+            while i < len(myWord): #Checks if your guess is in the word
+                if guess == myWord_list[i]: 
                     new_blanks_list[i] = myWord_list[i]
                 i += 1
             
@@ -197,7 +199,7 @@ def hangman_game():
                 blanks_list = new_blanks_list[:]
                 print(" ".join(blanks_list))
 
-                if myWord_list == blanks_list:
+                if myWord_list == blanks_list: #Checks if you have guessed the whole word
                     print("YOU WON!")
                     print()
                     print("\t .__.")
@@ -209,7 +211,7 @@ def hangman_game():
                 else:
                     print("Great Guess! Guess another")
 
-def play_again():
+def play_again(): #Asks if you want to play again, if no --> back to minigamemain
     print()
     again = input("Would you like to play again? ").upper()
     if again == "YES" or again == "Y":
@@ -219,6 +221,9 @@ def play_again():
     else:
         print("I didn't understand your answer, please try again")
         play_again()
+
+#CREDITS
+#Ella Rejström
 
 
                 

@@ -3,12 +3,26 @@ import random
 def player(): #Player chooses what they want to play
     choice_list = [1, 2, 3]
     print("What would you like to play? ")
-    player_choice = int(input("Rock:\t\t1\nPaper:\t\t2\nScissors:\t3\n"))
-    while player_choice not in choice_list:
-        print("Not an option, choose again")
-        print()
-        print("What would you like to play? ")
-        player_choice = int(input("Rock:\t\t1\nPaper:\t\t2\nScissors:\t3\n"))
+    print("Rock:\t\t1\nPaper:\t\t2\nScissors:\t3\n")
+    while True:
+        try:
+            player_choice = int(input("> ")) #Loop so that you can't break the code if you write a letter
+        except ValueError:
+            print("Not an option")
+            continue
+        else:
+            break
+    while player_choice not in choice_list: #Check if your input is a valid answer
+        print("Not an option")
+        while True:
+            try:
+                player_choice = int(input("> "))
+            except ValueError:
+                print("Not an option")
+                continue
+            else:
+                break
+
     return player_choice
 
 
@@ -17,7 +31,15 @@ def computer(): #Computer chooses by random what they want to play
     return computer_hand
 
 def count(): #Player chooses how many rounds you will need to win the total game
-    point_count= int(input("How many points will you need to win? "))
+    print("How many points will you need to win?")
+    while True:
+        try:
+            point_count= int(input("> "))
+        except ValueError:
+            print("Not an option, try again")
+            continue
+        else:
+            break
     return point_count
 
 
@@ -29,7 +51,7 @@ def game(): #Where the full game is
         player_hand = player()
         computer_hand = computer()
          
-        hand_def = {
+        hand_def = { #hand_def = hand defenition
             1: "Rock",
             2: "Paper",
             3: "Scissors"
@@ -52,20 +74,21 @@ def game(): #Where the full game is
         print(player_count, computer_count)
         print()
     
-    if player_count > computer_count:
+    if player_count > computer_count: #If player has won
         print("You won!")
         print()
         print("\t .__.\n\t(|  |)\n\t (  )\n\t _)(_")#prints out a trophy
         print("    (Grodan Greger)")
         print()
         play_again()
-    elif computer_count > player_count:
+    elif computer_count > player_count: #If computer won
         print("Computer won!")
         print()
         play_again()
 
-def play_again():
-    play_again = input("Would you like to play again?").upper()
+def play_again(): #Asks if you want to play again, if no --> go back to minigamemain
+    print("Would you like to play again?")
+    play_again = input("> ").upper()
     if play_again == "YES" or play_again == "Y":
         print()
         print()

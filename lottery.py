@@ -1,13 +1,13 @@
 import random
 
-LOTTO_NUM = 5
-MONEY = 100
+LOTTO_NUM = 5 #How many numbers you can have, easier to change
+MONEY = 100 #How much money you have, easier to change
 
 
-def What_Do_Now(play_money):
+def What_Do_Now(play_money): #Checks if you want to keep going, start over or end game
     print()
     print("What do you want to do now?")
-    if play_money == 0:
+    if play_money == 0:         #If you don't have any money left --> takes out the option of keep going
         print()
         print("Start all over:   S")
         print("End game:         E")
@@ -31,13 +31,13 @@ def What_Do_Now(play_money):
             print("I didn't understand that, try again")
             What_Do_Now(play_money)
 
-def Player_Choise():
+def Player_Choise(): #Where you choose what will be your lucky numbers
     choise_list = []
     print("What will be your lucky numbers? Max %s numbers" %(LOTTO_NUM))
     for i in range (0, LOTTO_NUM):
         choise = input("> ")
         choise_list.append(choise)
-        while len(choise_list[i]) > 2 or choise_list[i] == "" or choise_list[i].startswith("-") or choise_list[i].startswith("0"):
+        while len(choise_list[i]) > 2 or choise_list[i] == "" or choise_list[i].startswith("-") or choise_list[i].startswith("0"): #Checks if you have valid numbers
             print("Invalid number, try again!")
             del choise_list[i]
             choise = input("> ")
@@ -56,7 +56,7 @@ def Player_Choise():
     
  
 
-def Lottery_Num():
+def Lottery_Num(): #Randomizes out the correct numbers
     number = []
     for i in range(0, LOTTO_NUM):
         number.append(random.randint(1, 99))
@@ -64,7 +64,7 @@ def Lottery_Num():
         
 
 
-def Check_wins(lN, pN, bet, player_money):
+def Check_wins(lN, pN, bet, player_money): #Checks if you have won anything and add money to your "bank"
     right = 0
     totalright = 0
     wrong = 0
@@ -82,13 +82,13 @@ def Check_wins(lN, pN, bet, player_money):
         return player_money
     else:
         print("You had %s of the same numbers but on the wrong place and %s of the same and on the right place" %(right, totalright))
-        player_money = player_money + ((2 * totalright) * bet) + ((1 * right) * bet)
+        player_money = player_money + ((2 * totalright) * bet) + ((1 * right) * bet) #Counts how much money you get
         return player_money
     
 
-def Money_Check(pM):
+def Money_Check(pM): #Checks that you have any money left and prints out how much money you have
     if pM > 0:
-        if pM == 1:
+        if pM == 1:                         #Checks if you have 1 or more coins so that the grammar is correct
             print("You have %s coin" %(pM))
             return pM
         else:
@@ -99,9 +99,9 @@ def Money_Check(pM):
         return pM
 
         
-def Money_Bet(player_money):
+def Money_Bet(player_money): #Asks how much money you want to bet
     print("How much money do you want to bet?")
-    while True:
+    while True:             #Checks so that you can't bug the program and shut it down
         try:
             bet = int(input("> "))
         except ValueError:
@@ -109,7 +109,7 @@ def Money_Bet(player_money):
             continue
         else:
             break
-    while bet == 0 or bet > player_money or bet == "" or bet < 0:
+    while bet == 0 or bet > player_money or bet == "" or bet < 0: #Checks that your bet is valid
         print("Not a valid bet")
         while True:
             try:
@@ -124,13 +124,13 @@ def Money_Bet(player_money):
 
 
     
-def Player_Money():
+def Player_Money(): #Return how much money you have to start with
     the_player_money = MONEY
     return the_player_money
 
     
 
-def Lottery_Game():
+def Lottery_Game(): #Where the whole game is 
     play_money = Player_Money()
     while True:
         play_money = Money_Check(play_money)
@@ -141,13 +141,16 @@ def Lottery_Game():
         print("The correct numbers were", lottery_numbers)
         play_money = Money_Check(play_money)
         do_now = What_Do_Now(play_money)
-        if do_now == "K":
+        if do_now == "K": #Checks what you what to do
             continue
         elif do_now == "S":
             Lottery_Game()
         else:
             print()
             break
+
+#CREDITS
+#Ella Rejström
         
 
 

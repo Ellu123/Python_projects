@@ -1,10 +1,10 @@
 import random
 
 
-NUM_DIGITS = 3
-MAX_GUESS = 10
+NUM_DIGITS = 3 #How long the number it is, this makes it easier to change
+MAX_GUESS = 10 #How many guesses you have, this makes it easier to change
 
-def playAgain():
+def playAgain(): #The play again function, if no --> back to minigamemain
     print()
     print("Would you like to play again?")
     playagain = input("> ").upper()
@@ -18,7 +18,7 @@ def playAgain():
         print("I didn't understand it. Try again")
         playAgain()
 
-def getSecretNum():
+def getSecretNum(): #Randomises the secret number
     numbers = list(range(10))
     random.shuffle(numbers)
     secretNum = ""
@@ -30,11 +30,10 @@ def getSecretNum():
         for i in range(NUM_DIGITS):
             secretNum += str(numbers[i])
         secretNum_list = list(secretNum)
-
-    
     return secretNum
 
-def getClues(guess, secretNum):
+
+def getClues(guess, secretNum): #Checks if you have all right, some right or nothing right
     if guess == secretNum:
         print("You figured it out!")
         print()
@@ -56,7 +55,7 @@ def getClues(guess, secretNum):
     clues.sort()
     return " ".join(clues)
 
-def isOnlyDigits(num):
+def isOnlyDigits(num): #Check if it is a valid guess
     if num == "":
         return False
     
@@ -68,7 +67,7 @@ def isOnlyDigits(num):
 
 
 
-def bagels_game():
+def bagels_game(): #Where the full game is 
     print()
     print("Hello")
     print("I am thinking of a %s-digit number. Can you figure out what it is?" %(NUM_DIGITS))
@@ -82,7 +81,7 @@ def bagels_game():
     secretNum = getSecretNum()
     print("Secret number has been chosen. You have %s guesses to get it" %(MAX_GUESS))
     guessesTaken = 1
-    while guessesTaken <= MAX_GUESS:
+    while guessesTaken <= MAX_GUESS: #Checks if you have any guesses left
         guess = ""
         while len(guess) != NUM_DIGITS or not isOnlyDigits(guess):
             print("Guess #%s:" %(guessesTaken))
@@ -98,6 +97,9 @@ def bagels_game():
             print("You ran out of guesses. The correct answer was %s" %(secretNum))
             playAgain()
             break
+
+#CREDITS
+#Ella Rejström
      
      
             
