@@ -101,7 +101,7 @@ def play_again(): #Asks if you want to play again, if no --> go back to minigame
 
 
 
-def introduction():
+def Introduction_rps():
     print()
     print("Hello and welcome to rock paper scissors!")
     print("The rules are simple. Rock takes scissors, paper takes rock, scissors take paper and vice versa")
