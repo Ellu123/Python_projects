@@ -1,27 +1,22 @@
 import random
 
 
-NUM_DIGITS = 3 #How long the number it is, this makes it easier to change
+#NUM_DIGITS = 3 #How long the number it is, this makes it easier to change
 MAX_GUESS = 10 #How many guesses you have, this makes it easier to change
 def difficulty():
     print("Choose your difficulty")
     print("Normal (3 digits, 10 guesses) -------- N")
     print("Hard (5 digits, 10 guesses) -----------H")
-    print("Super Hard (5 digits, 6 guesses) ------S")
     dif = input("> ").upper()
 
     if dif == "N" or dif == "NORMAL":
         num_digits = 3
-        max_guess = 10
-        return num_digits, max_guess
+        #MAX_GUESS = 10
+        return num_digits
     elif dif == "H" or dif == "HARD":
         num_digits = 5
-        max_guess = 10
-        return num_digits, max_guess
-    elif dif == "S" or dif == "SUPER HARD":
-        num_digits = 5
-        max_guess = 6
-        return num_digits, max_guess
+        #MAX_GUESS = 10
+        return num_digits#, MAX_GUESS
     else:
         print("I didn't understand that, try again")
         difficulty()
@@ -39,7 +34,7 @@ def playAgain(): #The play again function, if no --> back to minigamemain
         print("I didn't understand it. Try again")
         playAgain()
 
-def getSecretNum(): #Randomises the secret number
+def getSecretNum(num_digits): #Randomises the secret number
     numbers = list(range(1, 10))
     random.shuffle(numbers)
     secretNum = ""
@@ -83,7 +78,8 @@ def isOnlyDigits(num): #Check if it is a valid guess
 
 
 
-def bagels_game(): #Where the full game is 
+def bagels_game(): #Where the full game is
+    num_digits = difficulty()
     print()
     print("Hello")
     print("I am thinking of a %s-digit number. Can you figure out what it is?" %(num_digits))
@@ -94,10 +90,10 @@ def bagels_game(): #Where the full game is
     print()
 
 
-    secretNum = getSecretNum()
-    print("Secret number has been chosen. You have %s guesses to get it" %(max_guess))
+    secretNum = getSecretNum(num_digits)
+    print("Secret number has been chosen. You have %s guesses to get it" %(MAX_GUESS))
     guessesTaken = 1
-    while guessesTaken <= max_guess: #Checks if you have any guesses left
+    while guessesTaken <= MAX_GUESS: #Checks if you have any guesses left
         guess = ""
         while len(guess) != num_digits or not isOnlyDigits(guess):
             print("Guess #%s:" %(guessesTaken))
@@ -109,7 +105,7 @@ def bagels_game(): #Where the full game is
         if guess == secretNum:
             playAgain()
             break
-        if guessesTaken > max_guess:
+        if guessesTaken > MAX_GUESS:
             print("You ran out of guesses. The correct answer was %s" %(secretNum))
             playAgain()
             break
