@@ -11,12 +11,12 @@ GAMES = 4 #How many games you have
 def Intro():
     print("Hello, what would you like to play?") #Let's you choose what game you want to play, or quit
     print()
-    print("Rock paper scissors:     1")
-    print("Hangman:                 2")
-    print("Bagels:                  3")
-    print("Lottery:                 4")
-    print("Suprise me:              S") #Chooses a game by random
-    print("Quit:                    Q")
+    print("Rock paper scissors: --- 1")
+    print("Hangman: --------------- 2")
+    print("Bagels: ---------------- 3")
+    print("Lottery: --------------- 4")
+    print("Suprise me: ------------ S") #Chooses a game by random
+    print("Quit: ------------------ Q")
     
     what_game = input("> ").upper()
 

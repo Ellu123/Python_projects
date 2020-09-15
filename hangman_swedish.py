@@ -171,7 +171,7 @@ def hangman_game_swedish(): #Where the game is
         guess = guess.upper()
 
         if len(guess) > 1 and len(guess) < myWord_num or len(guess) > myWord_num: #Checks that you are not cheating
-            print("Svara med bara en bokstav!")
+            print("Svara med bara en bokstav eller ifall du vet ordet, skriver du hela!")
         if guess == "":
             print("Skriv något tack")
         elif guess in guess_list:

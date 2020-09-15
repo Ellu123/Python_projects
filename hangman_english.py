@@ -171,7 +171,7 @@ def hangman_game_english(): #Where the game is
         guess = guess.upper()
 
         if len(guess) > 1 or len(guess) < myWord_num or len(guess) > myWord_num: #Checks that you are not cheating
-            print("Only one letter please!")
+            print("Only one letter please or if you know the word write it!")
         elif guess == "":
             print("Fill in something please")
         elif guess in guess_list:
