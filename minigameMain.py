@@ -1,24 +1,28 @@
 import random
 
-from rock_paper_scissors import Introduction_rps #Makes it possible to run the functions in the other games
+# Makes it possible to run the functions in the other games
+from rock_paper_scissors import Introduction_rps
 from hangman import Introduction_hm
 from bagels_game import bagels_game
 from lottery import Lottery_Game
 
-GAMES = 4 #How many games you have
+GAMES = 4  # How many games you have
 
 
 def Intro():
-    print("Hello, what would you like to play?") #Let's you choose what game you want to play, or quit
+    # Let's you choose what game you want to play, or quit
+    print("Hello, what would you like to play?")
     print()
     print("Rock paper scissors: --- 1")
     print("Hangman: --------------- 2")
     print("Bagels: ---------------- 3")
     print("Lottery: --------------- 4")
-    print("Suprise me: ------------ S") #Chooses a game by random
+    print("Suprise me: ------------ S")  # Chooses a game by random
     print("Quit: ------------------ Q")
-    
+
     what_game = input("> ").upper()
+
+    print("Created by: Ella Rejström")
 
     if what_game == "1":
         print("Starting Rock paper scissors")
@@ -52,10 +56,10 @@ def Intro():
     else:
         print("I didn't get that, please try again")
         Intro()
-    
 
-while True: #Makes it possible so that you can end a function in the other games and then start the main again, ends when you want it to end
+
+while True:  # Makes it possible so that you can end a function in the other games and then start the main again, ends when you want it to end
     Intro()
 
-#CREDITS
-#Ella Rejström
+# CREDITS
+# Ella Rejström
