@@ -1,0 +1,52 @@
+Dice roller game:
+
+- Roll dice
+- Get number
+- Roll again but higher or same
+- See how many points you get
+
+Pointsystem: 
+- Count the points of the eye of the dice
+
+Bonus:
+- If you get two of the same then you get another dice
+
+Extra:
+
+- Ascii art
+
++-------------+ +-------------+ +-------------+ +-------------+ +-------------+ +-------------+
+|  0        0 | |  0        0 | |  0        0 | |  0          | |  0          | |             |
+|             | |             | |             | |             | |             | |             |
+|  0        0 | |      0      | |             | |      0      | |             | |      0      |
+|             | |             | |             | |             | |             | |             |
+|  0        0 | |  0        0 | |  0        0 | |           0 | |           0 | |             |
++-------------+ +-------------+ +-------------+ +-------------+ +-------------+ +-------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -5,8 +5,9 @@ from rock_paper_scissors import Introduction_rps
 from hangman import Introduction_hm
 from bagels_game import bagels_game
 from lottery import Lottery_Game
+from dice_game import Introduction_dice
 
-GAMES = 4  # How many games you have
+GAMES = 5  # How many games you have
 
 
 def Intro():
@@ -17,12 +18,13 @@ def Intro():
     print("Hangman: --------------- 2")
     print("Bagels: ---------------- 3")
     print("Lottery: --------------- 4")
+    print("Throw the Dice: -------- 5")
     print("Suprise me: ------------ S")  # Chooses a game by random
-    print("Quit: ------------------ Q")
+    print("Quit: ------------------ Q")  # Quit the game
+    print()
+    print("Created by: Ella Rejström")
 
     what_game = input("> ").upper()
-
-    print("Created by: Ella Rejström")
 
     if what_game == "1":
         print("Starting Rock paper scissors")
@@ -36,6 +38,9 @@ def Intro():
     elif what_game == "4":
         print("Starting Lottery")
         Lottery_Game()
+    elif what_game == "5":
+        print("Starting Throw the Dice")
+        Introduction_dice()
     elif what_game == "S":
         rgame = random.randint(1, GAMES)
         if rgame == 1:

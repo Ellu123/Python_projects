@@ -19,5 +19,7 @@
 - Lottery
   - Try you luck in the lottery by choosing 5 different numbers (fake money ofc)
   - ![Lottery game](/img/lottery_screen.png)
+- Throw the Dice (still under construction)
+  - Throw the dices and try to get higher or the same as your last throw
 
 ### These games require a downloaded version of python
