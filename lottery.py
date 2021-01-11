@@ -33,7 +33,7 @@ def What_Do_Now(play_money): #Checks if you want to keep going, start over or en
 
 def Player_Choise(): #Where you choose what will be your lucky numbers
     choise_list = []
-    print("What will be your lucky numbers? Max %s numbers" %(LOTTO_NUM))
+    print("What will be your lucky numbers? Max valid numbers are between 1 and 99")
     for i in range (0, LOTTO_NUM):
         choise = input("> ")
         choise_list.append(choise)
